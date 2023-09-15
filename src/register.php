@@ -172,7 +172,6 @@ error_reporting(E_ALL);
   $avatarFilename = "default_avatar.png";
   if (isset($avatar)) {
         $avatarFilename = $avatar->getClientOriginalName();
-        echo $avatarFilename;
 
         try {
                 $extension = $avatar->guessClientExtension();

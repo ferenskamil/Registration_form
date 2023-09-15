@@ -29,6 +29,6 @@ return array(
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
-    'App\\Helpers\\' => array($baseDir . '/src/helpers'),
+    'App\\Helpers\\' => array($baseDir . '/src/classes'),
     'App\\Classes\\' => array($baseDir . '/src/classes'),
 );

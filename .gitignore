@@ -1,0 +1,5 @@
+vendor/
+
+# Ignore all files located in logos and avatars folders except default files
+assets/imgs/avatars/*
+!assets/imgs/avatars/default_avatar.png

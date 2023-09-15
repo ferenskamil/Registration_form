@@ -11,6 +11,9 @@ error_reporting(E_ALL);
  // Config
  use App\Classes\Config;
 
+ //  Helpers
+ use App\Classes\Helpers;
+
  // Validation
  use Symfony\Component\Validator\Constraints\Length;
  use Symfony\Component\Validator\Constraints\NotBlank;
@@ -24,6 +27,9 @@ error_reporting(E_ALL);
  // Http-foundation
  use Symfony\Component\HttpFoundation\Request;
 
+ // Registration in DB
+ use App\Classes\User;
+
  // reCaptcha
  use ReCaptcha\ReCaptcha;
 
@@ -32,12 +38,6 @@ error_reporting(E_ALL);
  use Symfony\Component\Mailer\Transport;
  use Symfony\Component\Mailer\Mailer;
  use Symfony\Component\Mime\Email as EmailMessage;
-
- // Registration in DB
- use App\Classes\User;
-
- // Helpers
- use function App\Helpers\createUniqueFilename;
 
 /** Validation */
  if ($_POST) {
@@ -172,10 +172,11 @@ error_reporting(E_ALL);
   $avatarFilename = "default_avatar.png";
   if (isset($avatar)) {
         $avatarFilename = $avatar->getClientOriginalName();
+        echo $avatarFilename;
 
         try {
                 $extension = $avatar->guessClientExtension();
-                $avatarFilename = createUniqueFilename('Avatar' , $avatarFilename , $extension);
+                $avatarFilename = Helpers::createUniqueFilename('Avatar' , $avatarFilename , $extension);
 
                 $avatarUploadPath = __DIR__ . '/../assets/imgs/avatars/';
                 $avatar->move($avatarUploadPath , $avatarFilename);
